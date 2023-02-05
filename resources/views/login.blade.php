@@ -55,35 +55,34 @@
                     @if (session()->has('loginError'))
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             {{ session('loginError') }}
-                            <button class="btn-close" type="button" data-bs-dismiss="alert"
-                                aria-label="Close"></button>
+
                         </div>
                     @endif
 
                     <div class="row">
                         <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
+                            {{-- <div class="icheck-primary"> --}}
+                            {{-- <input type="checkbox" id="remember">
                                 <label for="remember">
                                     Remember Me
-                                </label>
-                                {{-- <p class="mb-0">
+                                </label> --}}
+                            {{-- <p class="mb-0">
                                     <a href="/register" class="text-center">Registration</a>
                                 </p> --}}
-                            </div>
+                            {{-- </div> --}}
                         </div>
                         <!-- /.col -->
-                        <div class="col-4">
+                        {{-- <div class="col-4">
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                        </div>
+                        </div> --}}
                         <!-- /.col -->
                     </div>
 
-                    {{-- <div class="social-auth-links text-center mt-2 mb-3">
+                    <div class="social-auth-links text-center mt-2 mb-3">
                         <button type="submit" class="btn btn-block btn-primary">Sign In
 
                         </button>
-                    </div> --}}
+                    </div>
                 </form>
 
 

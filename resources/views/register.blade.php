@@ -74,8 +74,8 @@
                                 <label for="exampleSelectBorder">Jenis Kelamin
                                 </label>
 
-                                <select name="jenis_kelamin"
-                                    class="custom-select form-control  @error('img_nik') is-invalid @enderror "
+                                <select name="jenis_kelamin" value="{{ old('jenis_kelamin') }}"
+                                    class="custom-select form-control  @error('jenis_kelamin') is-invalid @enderror "
                                     id="exampleSelectBorder">
                                     <option>Pilih Jenis Kelamin</option>
                                     <option value="Pria">Pria</option>
@@ -88,7 +88,7 @@
                                 <label for="exampleSelectBorder">Status
                                 </label>
                                 <select name="status"
-                                    class="custom-select form-control  @error('img_nik') is-invalid @enderror"
+                                    class="custom-select form-control  @error('status') is-invalid @enderror"
                                     id="exampleSelectBorder">
                                     <option>Pilih Status</option>
                                     <option value="Lajang">Lajang</option>
@@ -98,8 +98,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="nomor ijazah">Tempat Lahir</label>
-                                <input name="tempat_lahir" type="text"
-                                    class="form-control @error('nama') is-invalid @enderror">
+                                <input name="tempat_lahir" type="text" value="{{ old('tempat_lahir') }}"
+                                    class="form-control @error('tempat_lahir') is-invalid @enderror ">
                                 @error('tempat_lahir')
                                     <div class="alert " style="color:tomato">{{ $message }}</div>
                                 @enderror
@@ -107,15 +107,15 @@
                             <div class="form-group">
                                 <label for="nomor ijazah">Tanggal Lahir</label>
                                 <input name="tanggal_lahir" type="date"
-                                    class="form-control @error('nama') is-invalid @enderror">
+                                    class="form-control @error('tanggal_lahir') is-invalid @enderror">
                                 @error('tanggal_lahir')
                                     <div class="alert " style="color:tomato">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="nomor ijazah">Agama</label>
-                                <input name="agama" type="text"
-                                    class="form-control @error('nama') is-invalid @enderror" id="exampleInputEmail1"
+                                <input name="agama" type="text" value="{{ old('agama') }}"
+                                    class="form-control @error('agama') is-invalid @enderror" id="exampleInputEmail1"
                                     placeholder="">
                                 @error('agama')
                                     <div class="alert " style="color:tomato">{{ $message }}</div>
@@ -123,8 +123,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="nomor ijazah">Alamat Rumah</label>
-                                <input name="alamat_rumah" type="text"
-                                    class="form-control @error('nama') is-invalid @enderror">
+                                <input name="alamat_rumah" type="text" value="{{ old('agama') }}"
+                                    class="form-control @error('alamat_rumah') is-invalid @enderror">
                                 @error('alamat_rumah')
                                     <div class="alert " style="color:tomato">{{ $message }}</div>
                                 @enderror
@@ -134,7 +134,7 @@
                                 <label for="exampleSelectBorder">Provinsi
                                 </label>
                                 <select name="provinsi"
-                                    class="custom-select form-control  @error('img_nik') is-invalid @enderror"
+                                    class="custom-select form-control  @error('provinsi') is-invalid @enderror"
                                     id="exampleSelectBorder">
                                     <option>Pilih Provinsi</option>
                                     <option value="Aceh">Aceh</option>
@@ -165,7 +165,7 @@
                                 <label for="exampleSelectBorder">Kabupaten / Kota
                                 </label>
                                 <select name="kota"
-                                    class="custom-select form-control  @error('img_nik') is-invalid @enderror"
+                                    class="custom-select form-control  @error('kota') is-invalid @enderror"
                                     id="exampleSelectBorder">
                                     <option>Pilih Kabupaten / Kota</option>
                                     <option value="Aceh Tamlang">Aceh Tamlang</option>
@@ -243,9 +243,9 @@
 
                             <div class="form-group">
                                 <label for="nomor ijazah">Pendidikan</label>
-                                <input name="pendidikan" type="text"
-                                    class="form-control @error('nama') is-invalid @enderror" id="exampleInputEmail1"
-                                    placeholder="">
+                                <input name="pendidikan" type="text" value="{{ old('pendidikan') }}"
+                                    class="form-control @error('pendidikan') is-invalid @enderror"
+                                    id="exampleInputEmail1" placeholder="">
                                 @error('pendidikan')
                                     <div class="alert " style="color:tomato">{{ $message }}</div>
                                 @enderror
@@ -255,7 +255,7 @@
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" name="img_ijazah"
-                                            class="form-control @error('nama') is-invalid @enderror"
+                                            class="form-control @error('img_ijazah') is-invalid @enderror"
                                             id="exampleInputFile">
                                     </div>
                                 </div>
@@ -265,8 +265,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nomor HP dan WA</label>
-                                <input name="no_hp" type="text"
-                                    class="form-control @error('nama') is-invalid @enderror" id="exampleInputEmail1"
+                                <input name="no_hp" type="text" value="{{ old('no_hp') }}"
+                                    class="form-control @error('no_hp') is-invalid @enderror" id="exampleInputEmail1"
                                     placeholder="0123456789">
                                 @error('no_hp')
                                     <div class="alert " style="color:tomato">{{ $message }}</div>
@@ -280,7 +280,7 @@
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" name="foto"
-                                            class="form-control @error('nama') is-invalid @enderror"
+                                            class="form-control @error('foto') is-invalid @enderror"
                                             id="exampleInputFile">
 
                                     </div>
@@ -296,7 +296,7 @@
                                 <label for="exampleSelectBorder">Judul Pelatihan Masyarakat
                                 </label>
                                 <select name="pelatihan"
-                                    class="custom-select form-control  @error('img_nik') is-invalid @enderror"
+                                    class="custom-select form-control  @error('pelatihan') is-invalid @enderror"
                                     id="exampleSelectBorder">
                                     <option>Pilih Judul Pelatihan Masyarakat </option>
                                     <option value="OPERATOR PESAWAT ANGKAT, ANGKUT DAN JURU IKAT BEBAN UNIT RIGGER">
@@ -319,7 +319,7 @@
                                 <label for="exampleSelectBorder">Periode Pelatihan dan Sertifikasi
                                 </label>
                                 <select name="periode"
-                                    class="custom-select form-control  @error('img_nik') is-invalid @enderror"
+                                    class="custom-select form-control  @error('periode') is-invalid @enderror"
                                     id="exampleSelectBorder">
                                     <option>Pilih Periode Pelatihan dan Sertifikasi </option>
                                     <option value="06 - 24 MARET 2023">06 - 24 MARET 2023</option>
@@ -336,7 +336,7 @@
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" name="sim"
-                                            class="form-control @error('nama') is-invalid @enderror"
+                                            class="form-control @error('sim') is-invalid @enderror"
                                             id="exampleInputFile">
                                     </div>
 

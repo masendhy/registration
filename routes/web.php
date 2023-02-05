@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('/welcome');
 });
 
-Route::get('/peserta', [EmployeeController::class, 'index'])->name('pegawai');
+Route::get('/peserta', [EmployeeController::class, 'index'])->name('peserta')->middleware('auth');
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/loginprocess', [LoginController::class, 'loginprocess'])->name('loginprocess');

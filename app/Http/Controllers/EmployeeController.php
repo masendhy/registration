@@ -9,7 +9,7 @@ class EmployeeController extends Controller
 {
     public function index()
     {
-        $data = Employee::all();
+        $data = Employee::paginate(5);
         return view('datapeserta', compact('data'));
     }
 }

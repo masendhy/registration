@@ -24,9 +24,15 @@
         <div class="card-header">
             <h3 class="">Data Peserta Pelatihan</h3>
         </div>
+
+        <div class="col-auto">
+            <a href="/export_excel" class="btn btn-success">Export Excel</a>
+        </div>
+
+
         <!-- /.card-header -->
         <div class="card-body">
-            <table id="example2" class="table table-bordered table-hover">
+            <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -51,7 +57,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $row)
+                    @foreach ($data as $index =>$row)
                         <tr>
                             <th scope="row">{{ $row->id }}</th>
                             <td>{{ $row->nama }}</td>
@@ -82,6 +88,7 @@
                 </tbody>
 
             </table>
+            {{ $data->links() }}
         </div>
         <!-- /.card-body -->
     </div>
@@ -107,6 +114,27 @@
             bsCustomFileInput.init();
         });
     </script>
+
+    <script>
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+
 
 </body>
 
