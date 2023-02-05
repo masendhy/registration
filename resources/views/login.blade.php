@@ -33,9 +33,11 @@
             <div class="card-body">
                 <p class="login-box-msg">SISTEM INFORMASI SELEKSI PELATIHAN MASYARAKAT PPSDM MIGAS</p>
 
-                <form action="../../index3.html" method="post">
+                <form action="/loginprocess" method="post">
+                    {{-- @method('get') --}}
+                    @csrf
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="text" class="form-control" name="name" placeholder="Username" autofocus>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user-circle"></span>
@@ -43,13 +45,21 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
                     </div>
+                    @if (session()->has('loginError'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ session('loginError') }}
+                            <button class="btn-close" type="button" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
+                    @endif
+
                     <div class="row">
                         <div class="col-8">
                             <div class="icheck-primary">
@@ -63,18 +73,20 @@
                             </div>
                         </div>
                         <!-- /.col -->
-                        {{-- <div class="col-4">
+                        <div class="col-4">
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                        </div> --}}
+                        </div>
                         <!-- /.col -->
                     </div>
+
+                    {{-- <div class="social-auth-links text-center mt-2 mb-3">
+                        <button type="submit" class="btn btn-block btn-primary">Sign In
+
+                        </button>
+                    </div> --}}
                 </form>
 
-                <div class="social-auth-links text-center mt-2 mb-3">
-                    <a href="/register" class="btn btn-block btn-primary">Sign In
 
-                    </a>
-                </div>
 
             </div>
             <!-- /.card-body -->

@@ -17,15 +17,19 @@ use App\Http\Controllers\EmployeeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/welcome');
 });
 
 Route::get('/peserta', [EmployeeController::class, 'index'])->name('pegawai');
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/loginprocess', [LoginController::class, 'loginprocess'])->name('loginprocess');
 
 //untuk menampilkan form register
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 
 //root untuk menyimpan data registrasi baru
 Route::post('/registeruser', [LoginController::class, 'registeruser'])->name('registeruser');
+
+Route::get('/user', [LoginController::class, 'user'])->name('user');
+Route::post('/usercreate', [LoginController::class, 'usercreate'])->name('usercreate');
