@@ -17,6 +17,8 @@ use App\Http\Controllers\EmployeeController;
 */
 
 Route::get('/', function () {
+
+
     return view('/welcome');
 });
 
@@ -33,3 +35,12 @@ Route::post('/registeruser', [LoginController::class, 'registeruser'])->name('re
 
 Route::get('/user', [LoginController::class, 'user'])->name('user');
 Route::post('/usercreate', [LoginController::class, 'usercreate'])->name('usercreate');
+
+#export PDF
+Route::get('/exportpdf', [EmployeeController::class, 'exportpdf'])->name('exportpdf');
+
+#export excel
+Route::get('/exportexcel', [EmployeeController::class, 'exportexcel'])->name('exportexcel');
+
+
+Route::get('/peserta', [EmployeeController::class, 'jumlahpeserta'])->name('jumlahpeserta');

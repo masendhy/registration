@@ -21,23 +21,95 @@
 <body class="hold-transition sidebar-mini">
 
     <div class="">
-        <div class="card-header">
-            <h3 class="">Data Peserta Pelatihan</h3>
+        <div class="container">
+            <div class="card-header">
+                <h3 class=""><img src="images/logo.png" alt="" width="150">Data Peserta Pelatihan</h3>
+            </div>
         </div>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
 
-        <div class="col-auto">
-            <a href="/export_excel" class="btn btn-success">Export Excel</a>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Jumlah peserta</span>
+                            <span class="info-box-number">
+                                {{ $jumlahpeserta }}
+                                <small>Orang</small>
+                            </span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box ">
+                        <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-male"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Jumlah Peserta Pria</span>
+                            <span class="info-box-number">{{ $jumlahpesertapria }} <small>Orang</small></span>
+
+
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+
+                <!-- fix for small devices only -->
+                <div class="clearfix hidden-md-up"></div>
+
+
+                <!-- /.col -->
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="info-box ">
+                        <span class="info-box-icon bg-warning elevation-1"><i style="color:#fff"
+                                class="fas fa-female"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Jumlah Peserta Wanita</span>
+                            <span class="info-box-number">{{ $jumlahpesertawanita }} <small>Orang</small></span>
+
+
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+            </div>
+
         </div>
+        <div class="container  mt-4">
+            <div class="row g-3 align-items-center">
+                <form action="/peserta" method="get">
+                    <div class="col-auto">
+                        <input type="search" name="search" id="inputPassword6" class="form-control"
+                            aria-describedby="passwordHelpInline" placeholder="search">
+                    </div>
+                </form>
 
+                <div class="col-auto">
+                    <a href="/exportpdf" class="btn btn-danger">Export PDF</a>
+                </div>
+                <div class="col-auto">
+                    <a href="/exportexcel" class="btn btn-success" target="_blank">Export Excel</a>
+                </div>
+            </div>
+        </div>
 
         <!-- /.card-header -->
         <div class="card-body">
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">No.</th>
                         <th scope="col">Nama</th>
-                        <th scope="col">NO. KTP</th>
+                        <th scope="col">No. KTP</th>
                         <th scope="col">KTP</th>
                         <th scope="col">Jenis Kelamin</th>
                         <th scope="col">Status</th>
@@ -57,32 +129,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $index =>$row)
-                        <tr>
-                            <th scope="row">{{ $row->id }}</th>
-                            <td>{{ $row->nama }}</td>
-                            <td>{{ $row->nik }}</td>
-                            {{-- <td>{{ $row->img_nik }}</td> --}}
-                            <td><img src="{{ asset('KTP/' . $row->img_nik) }}" style="width: 50px"></td>
-                            <td>{{ $row->jenis_kelamin }}</td>
-                            <td>{{ $row->status }}</td>
-                            <td>{{ $row->tempat_lahir }}</td>
-                            <td>{{ $row->tanggal_lahir }}</td>
-                            <td>{{ $row->agama }}</td>
-                            <td>{{ $row->alamat_rumah }}</td>
-                            <td>{{ $row->provinsi }}</td>
-                            <td>{{ $row->kota }}</td>
-                            <td>{{ $row->pendidikan }}</td>
-                            <td><img src="{{ asset('IJAZAH/' . $row->img_ijazah) }}" style="width: 50px"></td>
-                            <td>{{ $row->no_hp }}</td>
-                            {{-- <td>{{ $row->foto }}</td> --}}
-                            <td><img src="{{ asset('FOTO/' . $row->foto) }}" style="width: 50px"></td>
-                            {{-- <td>{{ $row->sim }}</td> --}}
-                            <td><img src="{{ asset('SIM/' . $row->sim) }}" style="width: 50px"></td>
-                            <td>{{ $row->pelatihan }}</td>
-                            <td>{{ $row->periode }}</td>
+                    @foreach ($data as $index => $row)
+                    <tr>
+                        <th scope="row">{{ $row->id }}</th>
+                        <td>{{ $row->nama }}</td>
+                        <td>{{ $row->nik }}</td>
+                        {{-- <td>{{ $row->img_nik }}</td> --}}
+                        <td><img src="{{ asset('KTP/' . $row->img_nik) }}" style="width: 50px"></td>
+                        <td>{{ $row->jenis_kelamin }}</td>
+                        <td>{{ $row->status }}</td>
+                        <td>{{ $row->tempat_lahir }}</td>
+                        <td>{{ $row->tanggal_lahir }}</td>
+                        <td>{{ $row->agama }}</td>
+                        <td>{{ $row->alamat_rumah }}</td>
+                        <td>{{ $row->provinsi }}</td>
+                        <td>{{ $row->kota }}</td>
+                        <td>{{ $row->pendidikan }}</td>
+                        <td><img src="{{ asset('IJAZAH/' . $row->img_ijazah) }}" style="width: 50px"></td>
+                        <td>{{ $row->no_hp }}</td>
+                        {{-- <td>{{ $row->foto }}</td> --}}
+                        <td><img src="{{ asset('FOTO/' . $row->foto) }}" style="width: 50px"></td>
+                        {{-- <td>{{ $row->sim }}</td> --}}
+                        <td><img src="{{ asset('SIM/' . $row->sim) }}" style="width: 50px"></td>
+                        <td>{{ $row->pelatihan }}</td>
+                        <td>{{ $row->periode }}</td>
 
-                        </tr>
+                    </tr>
                     @endforeach
 
                 </tbody>
@@ -110,13 +182,13 @@
     <script src="../../dist/js/demo.js"></script>
     <!-- Page specific script -->
     <script>
-        $(function() {
+        $(function () {
             bsCustomFileInput.init();
         });
     </script>
 
     <script>
-        $(function() {
+        $(function () {
             $("#example1").DataTable({
                 "responsive": true,
                 "lengthChange": false,
