@@ -81,7 +81,7 @@
                     <div class="social-auth-links text-center mt-2 mb-3">
                         <button type="submit" class="btn btn-block btn-primary ">Sign In</button>
                         <a href="/">Kembali ke Beranda</a>
-                        <p>Halaman ini hanya dapat digunakan oleh administrator</p>
+                        <p>Halaman ini hanya dapat digunakan oleh <strong>administrator</strong> </p>
                     </div>
                 </form>
 

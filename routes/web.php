@@ -33,8 +33,8 @@ Route::get('/register', [LoginController::class, 'register'])->name('register');
 //root untuk menyimpan data registrasi baru
 Route::post('/registeruser', [LoginController::class, 'registeruser'])->name('registeruser');
 
-Route::get('/user', [LoginController::class, 'user'])->name('user');
-Route::post('/usercreate', [LoginController::class, 'usercreate'])->name('usercreate');
+Route::get('/user', [LoginController::class, 'user'])->name('user')->middleware('auth');
+Route::post('/usercreate', [LoginController::class, 'usercreate'])->name('usercreate')->middleware('auth');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 #export PDF
