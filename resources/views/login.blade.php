@@ -79,9 +79,9 @@
                     </div>
 
                     <div class="social-auth-links text-center mt-2 mb-3">
-                        <button type="submit" class="btn btn-block btn-primary">Sign In
-
-                        </button>
+                        <button type="submit" class="btn btn-block btn-primary ">Sign In</button>
+                        <a href="/">Kembali ke Beranda</a>
+                        <p>Halaman ini hanya dapat digunakan oleh administrator</p>
                     </div>
                 </form>
 
@@ -101,5 +101,6 @@
     <!-- AdminLTE App -->
     <script src="{{ asset('template/dist/js/adminlte.min.js') }}"></script>
 </body>
+
 
 </html>

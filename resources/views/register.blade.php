@@ -46,34 +46,24 @@
                                 <input name="nama" type="text"
                                     class="form-control @error('nama') is-invalid @enderror" id="exampleInputEmail1"
                                     placeholder="Nama lengkap" autofocus value="{{ old('nama') }}">
-
                                 @error('nama')
                                     <div class="alert " style="color:tomato">{{ $message }}</div>
                                 @enderror
                             </div>
+
                             <div class="form-group">
                                 <label for="nomor nik">NIK</label>
                                 <input name="nik" type="text"
                                     class="form-control @error('nik') is-invalid @enderror " id="exampleInputEmail1"
                                     placeholder="Nomor NIK" autofocus value="{{ old('nik') }}">
-
                                 @error('nik')
                                     <div class="alert " style="color:tomato">{{ $message }}</div>
                                 @enderror
                             </div>
 
-                            <div class="">
-                                <label for="" class="form-label">Upload KTP</label>
-                                <input type="file" name="img_nik"
-                                    class="form-control @error('img_nik') is-invalid @enderror" id="exampleInputFile">
-                                @error('img_nik')
-                                    <div class="alert " style="color:tomato">{{ $message }}</div>
-                                @enderror
-                            </div>
                             <div class="form-group ">
                                 <label for="exampleSelectBorder">Jenis Kelamin
                                 </label>
-
                                 <select name="jenis_kelamin" value="{{ old('jenis_kelamin') }}"
                                     class="custom-select form-control  @error('jenis_kelamin') is-invalid @enderror "
                                     id="exampleSelectBorder">
@@ -81,9 +71,8 @@
                                     <option value="Pria">Pria</option>
                                     <option value="Wanita">Wanita</option>
                                 </select>
-
-
                             </div>
+
                             <div class="form-group">
                                 <label for="exampleSelectBorder">Status
                                 </label>
@@ -94,8 +83,8 @@
                                     <option value="Lajang">Lajang</option>
                                     <option value="Menikah">Menikah</option>
                                 </select>
-
                             </div>
+
                             <div class="form-group">
                                 <label for="nomor ijazah">Tempat Lahir</label>
                                 <input name="tempat_lahir" type="text" value="{{ old('tempat_lahir') }}"
@@ -104,6 +93,7 @@
                                     <div class="alert " style="color:tomato">{{ $message }}</div>
                                 @enderror
                             </div>
+
                             <div class="form-group">
                                 <label for="nomor ijazah">Tanggal Lahir</label>
                                 <input name="tanggal_lahir" type="date"
@@ -112,6 +102,7 @@
                                     <div class="alert " style="color:tomato">{{ $message }}</div>
                                 @enderror
                             </div>
+
                             <div class="form-group">
                                 <label for="nomor ijazah">Agama</label>
                                 <input name="agama" type="text" value="{{ old('agama') }}"
@@ -121,6 +112,7 @@
                                     <div class="alert " style="color:tomato">{{ $message }}</div>
                                 @enderror
                             </div>
+
                             <div class="form-group">
                                 <label for="nomor ijazah">Alamat Rumah</label>
                                 <input name="alamat_rumah" type="text" value="{{ old('agama') }}"
@@ -168,11 +160,14 @@
                                     class="custom-select form-control  @error('kota') is-invalid @enderror"
                                     id="exampleSelectBorder">
                                     <option>Pilih Kabupaten / Kota</option>
+                                    <option value="Provinsi Aceh" disabled>Provinsi Aceh</option>
                                     <option value="Aceh Tamlang">Aceh Tamlang</option>
                                     <option value='Aceh Utara'>Aceh Utara</option>
                                     <option value="Aceh Timur">Aceh Timur</option>
+                                    <option value="Provinsi Sumatera Utara" disabled>Provinsi Sumatera Utara</option>
                                     <option value="Langkat">Langkat</option>
                                     <option value="Deli Serdang">Deli Serdang</option>
+                                    <option value="Provinsi Riau" disabled>Provinsi Riau</option>
                                     <option value="Bengkalis">Bengkalis</option>
                                     <option value="Rokan Hilir">Rokan Hilir</option>
                                     <option value="Siak">Siak</option>
@@ -182,8 +177,10 @@
                                     <option value="Indra Giri Hulu">Indra Giri Hulu</option>
                                     <option value="Rokan Hulu">Rokan Hulu</option>
                                     <option value="Pelawan">Pelawan</option>
+                                    <option value="Kepulauan Riau" disabled>Kepulauan Riau</option>
                                     <option value="Natuna">Natuna</option>
                                     <option value="Kepulauan Anambas">Kepulauan Anambas</option>
+                                    <option value="Provinsi Jambi" disabled>Provinsi Jambi</option>
                                     <option value="Batanghari">Batanghari</option>
                                     <option value="Tanjung Jabung Barat">Tanjung Jabung Barat</option>
                                     <option value="Tanjung Jabung Timur">Tanjung Jabung Timur</option>
@@ -191,7 +188,10 @@
                                     <option value="Sarolangun">Sarolangun</option>
                                     <option value="Kota Jambi">Kota Jambi</option>
                                     <option value="Tebo">Tebo</option>
+                                    <option value="Provinsi Lampung" disabled>Provinsi Lampung</option>
                                     <option value="Lampung Timur">Lampung Timur</option>
+                                    <option value="Provinsi Sumatera Selatan" disabled>Provinsi Sumatera Selatan
+                                    </option>
                                     <option value="Musi Rawas Utara">Musi Rawas Utara</option>
                                     <option value="Banyuasin">Banyuasin</option>
                                     <option value="Musi Banyuasin">Musi Banyuasin</option>
@@ -201,44 +201,61 @@
                                     <option value="Ogan Komering Ulu">Ogan Komering Ulu</option>
                                     <option value="Lahat">Lahat</option>
                                     <option value="Prabumulih">Prabumulih</option>
-                                    <option value="Panukai Abab Lematang Ilir">Panukai Abab Lematang Ilir</option>
+                                    <option value="Penukal Abab Lematang Ilir">Penukal Abab Lematang Ilir</option>
+                                    <option value="Provinsi Jawa Barat" disabled>Provinsi Jawa Barat</option>
                                     <option value="Indramayu">Indramayu</option>
                                     <option value="Karawang">Karawang</option>
                                     <option value="Bekasi">Bekasi</option>
                                     <option value="Subang">Subang</option>
                                     <option value="Majalengka">Majalengka</option>
+                                    <option value="Provinsi Jawa Tengah" disabled>Provinsi Jawa Tengah</option>
                                     <option value="Blora">Blora</option>
                                     <option value="Rembang">Rembang</option>
                                     <option value="Cilacap">Cilacap</option>
+                                    <option value="Provinsi Jawa Timur" disabled>Provinsi Jawa Timur</option>
                                     <option value="Sidoarjo">Sidoarjo</option>
                                     <option value="Gresik">Gresik</option>
                                     <option value="Bojonegoro">Bojonegoro</option>
                                     <option value="Tuban">Tuban</option>
                                     <option value="Bangkalan">Bangkalan</option>
                                     <option value="Sumenep">Sumenep</option>
+                                    <option value="Provinsi Kalimantan Selatan" disabled>Provinsi Kalimantan Selatan
+                                    </option>
                                     <option value="Tabalong">Tabalong</option>
+                                    <option value="Provinsi Kalimantan Tengah" disabled>Provinsi Kalimantan Tengah
+                                    </option>
                                     <option value="Barito Utara">Barito Utara</option>
+                                    <option value="Provinsi Kalimantan Timur" disabled>Provinsi Kalimantan Timur
+                                    </option>
                                     <option value="Penajam Paser Utara">Penajam Paser Utara</option>
                                     <option value="Kutai Timur">Kutai Timur</option>
                                     <option value="Bontang">Bontang</option>
                                     <option value="Samarinda">Samarinda</option>
                                     <option value="Kutai Kertanegara">Kutai Kertanegara</option>
                                     <option value="Balikpapan">Balikpapan</option>
+                                    <option value="Provinsi Kalimantan Utara" disabled>Provinsi Kalimantan Utara
+                                    </option>
                                     <option value="Bulungan">Bulungan</option>
                                     <option value="Nunukan">Nunukan</option>
-                                    <option value="Wajo">Wajo</option>
                                     <option value="Tarakan">Tarakan</option>
+                                    <option value="Provinsi Sulawesi Selatan" disabled>Provinsi Sulawesi Selatan
+                                    </option>
+                                    <option value="Wajo">Wajo</option>
+                                    <option value="Provinsi Sulawesi Tengah" disabled>Provinsi Sulawesi Tengah</option>
                                     <option value="Banggai">Banggai</option>
+                                    <option value="Provinsi Maluku" disabled>Provinsi Maluku</option>
                                     <option value="Seram Bagian Timur">Seram Bagian Timur</option>
                                     <option value="Seram Bagian Barat">Seram Bagian Barat</option>
+                                    <option value="Provinsi Papua" disabled>Provinsi Papua</option>
                                     <option value="Jayawijaya">Jayawijaya</option>
                                     <option value="Nabire">Nabire</option>
+                                    <option value="Provinsi Papua Barat" disabled>Provinsi Papua Barat</option>
                                     <option value="Teluk Bintuni">Teluk Bintuni</option>
                                     <option value="Sorong">Sorong</option>
+                                    <option value="Provinsi NTT" disabled>Provinsi NTT</option>
                                     <option value="Ngada">Ngada</option>
                                     <option value="Kupang">Kupang</option>
                                 </select>
-
                             </div>
 
                             <div class="form-group">
@@ -250,44 +267,13 @@
                                     <div class="alert " style="color:tomato">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputFile">Upload Ijazah</label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" name="img_ijazah"
-                                            class="form-control @error('img_ijazah') is-invalid @enderror"
-                                            id="exampleInputFile">
-                                    </div>
-                                </div>
-                                @error('img_ijazah')
-                                    <div class="alert " style="color:tomato">{{ $message }}</div>
-                                @enderror
-                            </div>
+
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nomor HP dan WA</label>
                                 <input name="no_hp" type="text" value="{{ old('no_hp') }}"
                                     class="form-control @error('no_hp') is-invalid @enderror" id="exampleInputEmail1"
                                     placeholder="0123456789">
                                 @error('no_hp')
-                                    <div class="alert " style="color:tomato">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="exampleInputFile">Upload Pas Foto
-                                </label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" name="foto"
-                                            class="form-control @error('foto') is-invalid @enderror"
-                                            id="exampleInputFile">
-
-                                    </div>
-
-                                </div>
-                                <p>* Background biru, berdasi, kemeja putih</p>
-                                @error('foto')
                                     <div class="alert " style="color:tomato">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -311,10 +297,9 @@
                                     <option value="OPERATOR LANTAI PERAWATAN SUMUR">OPERATOR LANTAI PERAWATAN SUMUR
                                     </option>
                                     <option value="JURU LAS (WELDER)">JURU LAS (WELDER)</option>
-
                                 </select>
-
                             </div>
+
                             <div class="form-group">
                                 <label for="exampleSelectBorder">Periode Pelatihan dan Sertifikasi
                                 </label>
@@ -326,28 +311,73 @@
                                     <option value="08 - 26 MEI 2023">08 - 26 MEI 2023</option>
                                     {{-- <option value="08 - 26 MEI 2023">08 - 26 MEI 2023</option> --}}
                                 </select>
-
                             </div>
+
+                            <div class="">
+                                <label for="" class="form-label">Upload KTP</label>
+                                <input type="file" name="img_nik"
+                                    class="form-control @error('img_nik') is-invalid @enderror"
+                                    id="exampleInputFile">
+                                @error('img_nik')
+                                    <div class="alert " style="color:tomato">{{ $message }}</div>
+                                @enderror
+                                <br>
+                            </div>
+
                             <div class="form-group">
                                 <label for="exampleInputFile">Upload SIM A
                                 </label>
-
-
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" name="sim"
-                                            class="form-control @error('sim') is-invalid @enderror"
+                                            class="form-control @error('sim') is-invalid @enderror "
                                             id="exampleInputFile">
                                     </div>
-
                                 </div>
-                                <p>* Bagi peserta yang memilih pelatihan Operator
-                                    Pesawat Angkat, Angkut dan Juru Ikat Beban
-                                    Unit Forklift</p>
                                 @error('sim')
                                     <div class="alert " style="color:tomato">{{ $message }}</div>
                                 @enderror
+                            </div>
 
+                            <div class="">
+                                <label for="" class="form-label">Upload Surat Keterangan Tidak Mampu</label>
+                                <input type="file" name="img_suket"
+                                    class="form-control @error('img_suket') is-invalid @enderror"
+                                    id="exampleInputFile">
+                                @error('img_suket')
+                                    <div class="alert " style="color:tomato">{{ $message }}</div>
+                                @enderror
+                                <br>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputFile">Upload Ijazah</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" name="img_ijazah"
+                                            class="form-control @error('img_ijazah') is-invalid @enderror"
+                                            id="exampleInputFile">
+                                    </div>
+                                </div>
+                                @error('img_ijazah')
+                                    <div class="alert " style="color:tomato">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputFile">Upload Pas Foto
+                                </label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" name="foto"
+                                            class="form-control @error('foto') is-invalid @enderror"
+                                            id="exampleInputFile">
+                                    </div>
+                                </div>
+                                <p>* Background biru, berdasi, kemeja putih</p>
+                                @error('foto')
+                                    <div class="alert " style="color:tomato">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <p>Saya menyatakan bahwa data yang diisi sudah sesuai dan siap menerima sanksi sesuai hukum

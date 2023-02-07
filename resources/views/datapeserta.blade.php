@@ -15,27 +15,48 @@
     <link rel="stylesheet" href="{{ asset('template/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('template/dist/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="shortcut icon" href="images/logo_2.png">
 </head>
 
 <body class="hold-transition sidebar-mini">
 
     <div class="">
-        <div class="container">
-            <div class="card-header">
-                <h3 class=""><img src="images/logo.png" alt="" width="150">Data Peserta Pelatihan</h3>
-            </div>
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <div class="">
+                            <h3 class=""><img src="images/logo.png" alt="" width="150">Data Peserta
+                                Pelatihan</h3>
+
+                        </div>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <a href="/logout" class="btn btn-light mt-4"><i
+                                    class="fa-sharp fa-solid fa-right-from-bracket"></i>
+                                Logout</a>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <div class="container ">
+
+        </div>
+        <div class="container ">
+
         </div>
         <div class="container mt-4">
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="info-box">
-                        <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
+                        <span class="info-box-icon bg-primary elevation-1"><i class="fas fa-users"></i></span>
 
                         <div class="info-box-content">
                             <span class="info-box-text">Jumlah peserta</span>
-                            <span class="info-box-number">
-                                {{ $jumlahpeserta }}
+                            <span class="info-box-number">{{ $jumlahpeserta }}
                                 <small>Orang</small>
                             </span>
                         </div>
@@ -111,6 +132,7 @@
                         <th scope="col">Nama</th>
                         <th scope="col">No. KTP</th>
                         <th scope="col">KTP</th>
+                        <th scope="col">Surat Keterangan</th>
                         <th scope="col">Jenis Kelamin</th>
                         <th scope="col">Status</th>
                         <th scope="col">Tempat Lahir</th>
@@ -130,31 +152,32 @@
                 </thead>
                 <tbody>
                     @foreach ($data as $index => $row)
-                    <tr>
-                        <th scope="row">{{ $row->id }}</th>
-                        <td>{{ $row->nama }}</td>
-                        <td>{{ $row->nik }}</td>
-                        {{-- <td>{{ $row->img_nik }}</td> --}}
-                        <td><img src="{{ asset('KTP/' . $row->img_nik) }}" style="width: 50px"></td>
-                        <td>{{ $row->jenis_kelamin }}</td>
-                        <td>{{ $row->status }}</td>
-                        <td>{{ $row->tempat_lahir }}</td>
-                        <td>{{ $row->tanggal_lahir }}</td>
-                        <td>{{ $row->agama }}</td>
-                        <td>{{ $row->alamat_rumah }}</td>
-                        <td>{{ $row->provinsi }}</td>
-                        <td>{{ $row->kota }}</td>
-                        <td>{{ $row->pendidikan }}</td>
-                        <td><img src="{{ asset('IJAZAH/' . $row->img_ijazah) }}" style="width: 50px"></td>
-                        <td>{{ $row->no_hp }}</td>
-                        {{-- <td>{{ $row->foto }}</td> --}}
-                        <td><img src="{{ asset('FOTO/' . $row->foto) }}" style="width: 50px"></td>
-                        {{-- <td>{{ $row->sim }}</td> --}}
-                        <td><img src="{{ asset('SIM/' . $row->sim) }}" style="width: 50px"></td>
-                        <td>{{ $row->pelatihan }}</td>
-                        <td>{{ $row->periode }}</td>
+                        <tr>
+                            <th scope="row">{{ $row->id }}</th>
+                            <td>{{ $row->nama }}</td>
+                            <td>{{ $row->nik }}</td>
+                            {{-- <td>{{ $row->img_nik }}</td> --}}
+                            <td><img src="{{ asset('KTP/' . $row->img_nik) }}" style="width: 50px"></td>
+                            <td><img src="{{ asset('SUKET/' . $row->img_suket) }}" style="width: 50px"></td>
+                            <td>{{ $row->jenis_kelamin }}</td>
+                            <td>{{ $row->status }}</td>
+                            <td>{{ $row->tempat_lahir }}</td>
+                            <td>{{ $row->tanggal_lahir }}</td>
+                            <td>{{ $row->agama }}</td>
+                            <td>{{ $row->alamat_rumah }}</td>
+                            <td>{{ $row->provinsi }}</td>
+                            <td>{{ $row->kota }}</td>
+                            <td>{{ $row->pendidikan }}</td>
+                            <td><img src="{{ asset('IJAZAH/' . $row->img_ijazah) }}" style="width: 50px"></td>
+                            <td>{{ $row->no_hp }}</td>
+                            {{-- <td>{{ $row->foto }}</td> --}}
+                            <td><img src="{{ asset('FOTO/' . $row->foto) }}" style="width: 50px"></td>
+                            {{-- <td>{{ $row->sim }}</td> --}}
+                            <td><img src="{{ asset('SIM/' . $row->sim) }}" style="width: 50px"></td>
+                            <td>{{ $row->pelatihan }}</td>
+                            <td>{{ $row->periode }}</td>
 
-                    </tr>
+                        </tr>
                     @endforeach
 
                 </tbody>
@@ -182,13 +205,13 @@
     <script src="../../dist/js/demo.js"></script>
     <!-- Page specific script -->
     <script>
-        $(function () {
+        $(function() {
             bsCustomFileInput.init();
         });
     </script>
 
     <script>
-        $(function () {
+        $(function() {
             $("#example1").DataTable({
                 "responsive": true,
                 "lengthChange": false,

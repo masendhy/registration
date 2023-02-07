@@ -35,6 +35,7 @@ Route::post('/registeruser', [LoginController::class, 'registeruser'])->name('re
 
 Route::get('/user', [LoginController::class, 'user'])->name('user');
 Route::post('/usercreate', [LoginController::class, 'usercreate'])->name('usercreate');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 #export PDF
 Route::get('/exportpdf', [EmployeeController::class, 'exportpdf'])->name('exportpdf');
@@ -43,4 +44,6 @@ Route::get('/exportpdf', [EmployeeController::class, 'exportpdf'])->name('export
 Route::get('/exportexcel', [EmployeeController::class, 'exportexcel'])->name('exportexcel');
 
 
-Route::get('/peserta', [EmployeeController::class, 'jumlahpeserta'])->name('jumlahpeserta');
+// Route::get('/peserta', [EmployeeController::class, 'jumlahpeserta'])->name('jumlahpeserta');
+// Route::get('/peserta', [EmployeeController::class, 'jumlahpesertapria'])->name('jumlahpesertapria');
+// Route::get('/peserta', [EmployeeController::class, 'jumlahpesertawanita'])->name('jumlahpesertawanita');

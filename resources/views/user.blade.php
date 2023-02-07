@@ -42,10 +42,10 @@
                         {{-- @method('POST') --}}
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Nama Lengkap</label>
+                                <label>Username</label>
                                 <input name="name" type="text"
                                     class="form-control @error('name') is-invalid @enderror" id="exampleInputEmail1"
-                                    placeholder="Nama lengkap" autofocus value="{{ old('name') }}">
+                                    placeholder="Username" autofocus value="{{ old('name') }}">
 
                                 @error('name')
                                     <div class="alert " style="color:tomato">{{ $message }}</div>

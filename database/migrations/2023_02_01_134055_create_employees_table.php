@@ -18,6 +18,7 @@ class CreateEmployeesTable extends Migration
             $table->string('nama');
             $table->bigInteger('nik');
             $table->string('img_nik');
+            $table->string('img_suket');
             $table->enum('jenis_kelamin', ['Pria', 'Wanita']);
             $table->enum('status', ['Lajang', 'Menikah']);
             $table->string('tempat_lahir');

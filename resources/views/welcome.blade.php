@@ -441,6 +441,11 @@
                                 persyaratan pelatihan dapat anda lihat pada menu <a
                                     href="{{ url('/register') }}"><strong>Register.</strong></a>
                             </div>
+                            <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                Untuk keterangan lebih lajut dapat mengubungi kami <a
+                                    href="https://wa.me/6281548538320"><strong>Disini.</strong></a>
+
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -51,6 +51,15 @@ class LoginController extends Controller
         return redirect('/');
     }
 
+
+    public function logout()
+    {
+
+        Auth::logout();
+
+        return redirect('/');
+    }
+
     public function register()
     {
         return view('register');
@@ -64,6 +73,7 @@ class LoginController extends Controller
                 'nama' => 'required | unique:employees',
                 'nik' => 'required | unique:employees',
                 'img_nik' => 'required',
+                'img_suket' => 'required',
                 'jenis_kelamin' => 'required|not_in:0',
                 'status' => 'required',
                 'tempat_lahir' => 'required',
@@ -75,9 +85,9 @@ class LoginController extends Controller
                 'pendidikan' => 'required',
                 'img_ijazah' => 'required',
                 'no_hp' => 'required | unique:employees',
+                'sim' => 'required',
                 'foto' => 'required',
                 'pelatihan' => 'required|not_in:0',
-                'sim' => 'required',
                 'periode' => 'required|not_in:0',
 
 
@@ -86,6 +96,7 @@ class LoginController extends Controller
                 'nama.required' => 'Nama Lengkap Harus Diisi',
                 'nik.required' => 'NIK Harus Diisi ',
                 'img_nik.required' => 'Upload KTP Harus Diisi',
+                'img_suket.required' => 'Upload Surat Keterangan Harus Diisi',
                 'jenis_kelamin.required' => 'Jenis Kelamin Harus Diisi',
                 'status.required' => 'Status Harus Diisi',
                 'tempat_lahir.required' => 'Tempat Lahir Harus Diisi',
@@ -99,11 +110,11 @@ class LoginController extends Controller
                 'no_hp.required' => 'Nomor HP dan WA Harus Diisi',
                 'foto.required' => 'Upload Pas Foto Harus Diisi',
                 'pelatihan.required' => 'Pelatihan Harus Diisi',
-                'sim.required' => 'Upload SIM Harus Diisi',
                 'periode.required' => 'Periode Pelatihan Harus Diisi',
                 'nama.unique' => 'Nama Lengkap Sudah Dipakai',
                 'nik.unique' => 'NIK Sudah Dipakai',
-                'no_hp.unique' => 'Nomor HP dan WA Sudah Dipakai'
+                'no_hp.unique' => 'Nomor HP dan WA Sudah Dipakai',
+                'sim.required' => 'SIM Harus Diisi'
 
             ],
 
@@ -118,6 +129,15 @@ class LoginController extends Controller
 
             $data->update([
                 'img_nik' => $fileName ?? null,
+            ]);
+        }
+
+        if ($request->file('img_suket')) {
+            $fileName = pathinfo($request->file('img_suket')->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $data->nama . '.' . $request->file('img_suket')->getClientOriginalExtension();
+            $request->file('img_suket')->move('SUKET/', $fileName, 'public');
+
+            $data->update([
+                'img_suket' => $fileName ?? null,
             ]);
         }
 
