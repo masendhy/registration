@@ -29,12 +29,13 @@ Route::post('/loginprocess', [LoginController::class, 'loginprocess'])->name('lo
 
 //untuk menampilkan form register
 Route::get('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/getkota', [LoginController::class, 'getkota'])->name('getkota');
 
 //root untuk menyimpan data registrasi baru
 Route::post('/registeruser', [LoginController::class, 'registeruser'])->name('registeruser');
 
-Route::get('/user', [LoginController::class, 'user'])->name('user')->middleware('auth');
-Route::post('/usercreate', [LoginController::class, 'usercreate'])->name('usercreate')->middleware('auth');
+Route::get('/user', [LoginController::class, 'user'])->name('user');
+Route::post('/usercreate', [LoginController::class, 'usercreate'])->name('usercreate');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 #export PDF

@@ -24,7 +24,7 @@
         }
 
         a {
-            background-color: transparent
+            background-color: transparent,
         }
 
         [hidden] {
@@ -397,9 +397,11 @@
         {{-- @if (Route::has('login')) --}}
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
             {{-- @auth --}}
-            <a href="{{ url('/register') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+            <a href="{{ url('/register') }}" class="text-md text-gray-700 dark:text-gray-500 " style="color:#ffcc02 ">
+                Register</a>
             {{-- @else --}}
-            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+            <a href="{{ route('login') }}" class="text-md text-gray-700 dark:text-gray-500 " style="color:#ffcc02">Log
+                in</a>
 
             {{-- @if (Route::has('register'))
                         <a href="{{ route('register') }}"
@@ -437,12 +439,12 @@
 
                         <div class="ml-12">
                             <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                Pelatihan ini diadakan secara gratis dan ditujukan untuk umum. Segala ketentuan dan
-                                persyaratan pelatihan dapat anda lihat pada menu <a
+                                Pelatihan ini diadakan secara gratis dan ditujukan untuk umum. Semua ketentuan dan
+                                persyaratan pelatihan dapat anda lihat pada menu <a style="color: #ffcc02 "
                                     href="{{ url('/register') }}"><strong>Register.</strong></a>
                             </div>
                             <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                Untuk keterangan lebih lajut dapat mengubungi kami <a
+                                Untuk keterangan lebih lajut dapat mengubungi kami <a style="color: #ffcc02"
                                     href="https://wa.me/6281548538320"><strong>Disini.</strong></a>
 
                             </div>

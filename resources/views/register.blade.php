@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Form Registrasi | Seleksi Pelatihan Masyarakat PPSDM Migas</title>
 
     <!-- Google Font: Source Sans Pro -->
@@ -16,6 +17,9 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('template/dist/css/adminlte.min.css') }}">
     <link rel="shortcut icon" href="images/logo_2.png">
+
+
+
 </head>
 
 <body class="hold-transition sidebar-mini" style="background-image: url('images/back.jpg');background-size:cover; ">
@@ -127,9 +131,12 @@
                                 </label>
                                 <select name="provinsi"
                                     class="custom-select form-control  @error('provinsi') is-invalid @enderror"
-                                    id="exampleSelectBorder">
+                                    id="provinsi">
                                     <option>Pilih Provinsi</option>
-                                    <option value="Aceh">Aceh</option>
+                                    @foreach ($provinces as $provinsi)
+                                        <option value="{{ $provinsi->id }}"> {{ $provinsi->name }} </option>
+                                    @endforeach
+                                    {{-- <option value="Aceh">Aceh</option>
                                     <option value='Sumatera Utara'>Sumatera Utara</option>
                                     <option value="Riau">Riau</option>
                                     <option value="Kepulauan Riau">Kepulauan Riau</option>
@@ -148,7 +155,7 @@
                                     <option value="Maluku">Maluku</option>
                                     <option value="Papua">Papua</option>
                                     <option value="Papua Barat">Papua Barat</option>
-                                    <option value="NTT">NTT</option>
+                                    <option value="NTT">NTT</option> --}}
                                 </select>
 
                             </div>
@@ -158,38 +165,19 @@
                                 </label>
                                 <select name="kota"
                                     class="custom-select form-control  @error('kota') is-invalid @enderror"
-                                    id="exampleSelectBorder">
+                                    id="kota">
                                     <option>Pilih Kabupaten / Kota</option>
-                                    <option value="Provinsi Aceh" disabled>Provinsi Aceh</option>
+
+
+
+                                    {{-- <option value="Provinsi Aceh" disabled>
+                                        Provinsi Aceh</option>
                                     <option value="Aceh Tamlang">Aceh Tamlang</option>
                                     <option value='Aceh Utara'>Aceh Utara</option>
                                     <option value="Aceh Timur">Aceh Timur</option>
                                     <option value="Provinsi Sumatera Utara" disabled>Provinsi Sumatera Utara</option>
                                     <option value="Langkat">Langkat</option>
                                     <option value="Deli Serdang">Deli Serdang</option>
-                                    <option value="Provinsi Riau" disabled>Provinsi Riau</option>
-                                    <option value="Bengkalis">Bengkalis</option>
-                                    <option value="Rokan Hilir">Rokan Hilir</option>
-                                    <option value="Siak">Siak</option>
-                                    <option value="Kepulauan Meranti">Kepulauan Meranti</option>
-                                    <option value="Dumai">Dumai</option>
-                                    <option value="Kampar">Kampar</option>
-                                    <option value="Indra Giri Hulu">Indra Giri Hulu</option>
-                                    <option value="Rokan Hulu">Rokan Hulu</option>
-                                    <option value="Pelawan">Pelawan</option>
-                                    <option value="Kepulauan Riau" disabled>Kepulauan Riau</option>
-                                    <option value="Natuna">Natuna</option>
-                                    <option value="Kepulauan Anambas">Kepulauan Anambas</option>
-                                    <option value="Provinsi Jambi" disabled>Provinsi Jambi</option>
-                                    <option value="Batanghari">Batanghari</option>
-                                    <option value="Tanjung Jabung Barat">Tanjung Jabung Barat</option>
-                                    <option value="Tanjung Jabung Timur">Tanjung Jabung Timur</option>
-                                    <option value="Muaro Jambi">Muaro Jambi</option>
-                                    <option value="Sarolangun">Sarolangun</option>
-                                    <option value="Kota Jambi">Kota Jambi</option>
-                                    <option value="Tebo">Tebo</option>
-                                    <option value="Provinsi Lampung" disabled>Provinsi Lampung</option>
-                                    <option value="Lampung Timur">Lampung Timur</option>
                                     <option value="Provinsi Sumatera Selatan" disabled>Provinsi Sumatera Selatan
                                     </option>
                                     <option value="Musi Rawas Utara">Musi Rawas Utara</option>
@@ -202,16 +190,49 @@
                                     <option value="Lahat">Lahat</option>
                                     <option value="Prabumulih">Prabumulih</option>
                                     <option value="Penukal Abab Lematang Ilir">Penukal Abab Lematang Ilir</option>
+                                    <option value="Provinsi Riau" disabled>Provinsi Riau</option>
+                                    <option value="Bengkalis">Bengkalis</option>
+                                    <option value="Rokan Hilir">Rokan Hilir</option>
+                                    <option value="Siak">Siak</option>
+                                    <option value="Kepulauan Meranti">Kepulauan Meranti</option>
+                                    <option value="Dumai">Dumai</option>
+                                    <option value="Kampar">Kampar</option>
+                                    <option value="Indra Giri Hulu">Indra Giri Hulu</option>
+                                    <option value="Rokan Hulu">Rokan Hulu</option>
+                                    <option value="Pelawan">Pelawan</option>
+                                    //5
+                                    <option value="Kepulauan Riau" disabled>Kepulauan Riau</option>
+                                    <option value="Natuna">Natuna</option>
+                                    <option value="Kepulauan Anambas">Kepulauan Anambas</option>
+                                    //6
+                                    <option value="Provinsi Jambi" disabled>Provinsi Jambi</option>
+                                    <option value="Batanghari">Batanghari</option>
+                                    <option value="Tanjung Jabung Barat">Tanjung Jabung Barat</option>
+                                    <option value="Tanjung Jabung Timur">Tanjung Jabung Timur</option>
+                                    <option value="Muaro Jambi">Muaro Jambi</option>
+                                    <option value="Sarolangun">Sarolangun</option>
+                                    <option value="Kota Jambi">Kota Jambi</option>
+                                    <option value="Tebo">Tebo</option>
+
+                                    //7
+                                    <option value="Provinsi Lampung" disabled>Provinsi Lampung</option>
+                                    <option value="Lampung Timur">Lampung Timur</option>
+
+                                    //9
                                     <option value="Provinsi Jawa Barat" disabled>Provinsi Jawa Barat</option>
                                     <option value="Indramayu">Indramayu</option>
                                     <option value="Karawang">Karawang</option>
                                     <option value="Bekasi">Bekasi</option>
                                     <option value="Subang">Subang</option>
                                     <option value="Majalengka">Majalengka</option>
+
+                                    //10
                                     <option value="Provinsi Jawa Tengah" disabled>Provinsi Jawa Tengah</option>
                                     <option value="Blora">Blora</option>
                                     <option value="Rembang">Rembang</option>
                                     <option value="Cilacap">Cilacap</option>
+
+                                    //11
                                     <option value="Provinsi Jawa Timur" disabled>Provinsi Jawa Timur</option>
                                     <option value="Sidoarjo">Sidoarjo</option>
                                     <option value="Gresik">Gresik</option>
@@ -219,12 +240,18 @@
                                     <option value="Tuban">Tuban</option>
                                     <option value="Bangkalan">Bangkalan</option>
                                     <option value="Sumenep">Sumenep</option>
+
+                                    //12
                                     <option value="Provinsi Kalimantan Selatan" disabled>Provinsi Kalimantan Selatan
                                     </option>
                                     <option value="Tabalong">Tabalong</option>
+
+                                    //13
                                     <option value="Provinsi Kalimantan Tengah" disabled>Provinsi Kalimantan Tengah
                                     </option>
                                     <option value="Barito Utara">Barito Utara</option>
+
+                                    //14
                                     <option value="Provinsi Kalimantan Timur" disabled>Provinsi Kalimantan Timur
                                     </option>
                                     <option value="Penajam Paser Utara">Penajam Paser Utara</option>
@@ -233,28 +260,42 @@
                                     <option value="Samarinda">Samarinda</option>
                                     <option value="Kutai Kertanegara">Kutai Kertanegara</option>
                                     <option value="Balikpapan">Balikpapan</option>
+
+                                    //15
                                     <option value="Provinsi Kalimantan Utara" disabled>Provinsi Kalimantan Utara
                                     </option>
                                     <option value="Bulungan">Bulungan</option>
                                     <option value="Nunukan">Nunukan</option>
                                     <option value="Tarakan">Tarakan</option>
+
+                                    //16
                                     <option value="Provinsi Sulawesi Selatan" disabled>Provinsi Sulawesi Selatan
                                     </option>
                                     <option value="Wajo">Wajo</option>
+
+                                    //17
                                     <option value="Provinsi Sulawesi Tengah" disabled>Provinsi Sulawesi Tengah</option>
                                     <option value="Banggai">Banggai</option>
+
+                                    //18
                                     <option value="Provinsi Maluku" disabled>Provinsi Maluku</option>
                                     <option value="Seram Bagian Timur">Seram Bagian Timur</option>
                                     <option value="Seram Bagian Barat">Seram Bagian Barat</option>
+
+                                    //19
                                     <option value="Provinsi Papua" disabled>Provinsi Papua</option>
                                     <option value="Jayawijaya">Jayawijaya</option>
                                     <option value="Nabire">Nabire</option>
+
+                                    //20
                                     <option value="Provinsi Papua Barat" disabled>Provinsi Papua Barat</option>
                                     <option value="Teluk Bintuni">Teluk Bintuni</option>
                                     <option value="Sorong">Sorong</option>
+
+                                    //21
                                     <option value="Provinsi NTT" disabled>Provinsi NTT</option>
                                     <option value="Ngada">Ngada</option>
-                                    <option value="Kupang">Kupang</option>
+                                    <option value="Kupang">Kupang</option> --}}
                                 </select>
                             </div>
 
@@ -425,7 +466,7 @@
 
 
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary success">Submit</button>
+                            <button type="submit" class="btn btn-primary ok">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -453,10 +494,42 @@
         });
     </script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        });
+
+        $(function() {
+            $('#provinsi').on('change', function() {
+                let id_provinsi = $('#provinsi').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route('getkota') }}',
+                    data: {
+                        id_provinsi: id_provinsi
+                    },
+                    chace: false,
+
+                    success: function(msg) {
+                        $('#kota').html(msg);
+                    },
+                    error: function(data) {
+
+                    }
+                })
+            })
+        })
+    </script>
+
 </body>
 <script>
     $('.success').click(function() {
-        swal("Selamat!", "Anda berhasil mendaftar", "success");
+        swal("Selamat!", "Anda berhasil mendaftar", "ok");
     })
 </script>
 

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Regency;
 use App\Models\Employee;
+use App\Models\Province;
+// use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-// use Illuminate\Foundation\Auth\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -62,18 +64,23 @@ class LoginController extends Controller
 
     public function register()
     {
-        return view('register');
+        $provinces = Province::all();
+        // $regencies = Regency::all();
+
+        return view('register', compact('provinces'));
     }
 
     public function registeruser(Request $request)
     {
+
+
         $this->validate(
             $request,
             [
                 'nama' => 'required | unique:employees',
                 'nik' => 'required | unique:employees',
                 'img_nik' => 'required',
-                'img_suket' => 'required',
+                // 'img_suket' => 'required',
                 'jenis_kelamin' => 'required|not_in:0',
                 'status' => 'required',
                 'tempat_lahir' => 'required',
@@ -95,7 +102,7 @@ class LoginController extends Controller
             [
                 'nama.required' => 'Nama Lengkap Harus Diisi',
                 'nik.required' => 'NIK Harus Diisi ',
-                'img_nik.required' => 'Upload KTP Harus Diisi',
+                // 'img_nik.required' => 'Upload KTP Harus Diisi',
                 'img_suket.required' => 'Upload Surat Keterangan Harus Diisi',
                 'jenis_kelamin.required' => 'Jenis Kelamin Harus Diisi',
                 'status.required' => 'Status Harus Diisi',
@@ -120,7 +127,6 @@ class LoginController extends Controller
 
         );
 
-
         $data = Employee::create($request->all());
 
         if ($request->file('img_nik')) {
@@ -141,10 +147,12 @@ class LoginController extends Controller
             ]);
         }
 
-        // if ($request->hasFile('img_nik')) {
-        //     $request->file('img_nik')->move('KTP/', $request->file('img_nik')->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $data->img_nik = $request->file('img_nik')->getClientOriginalName();
+        // if ($request->hasFile('img_suket')) {
+        //     $request->file('img_suket')->move('SUKET/', $request->file('img_suket')->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $data->img_suket = $request->file('img_suket')->getClientOriginalName();
         //     $data->save();
         // }
+
+
 
         if ($request->file('img_ijazah')) {
             $fileName = pathinfo($request->file('img_ijazah')->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $data->nama . '.' . $request->file('img_ijazah')->getClientOriginalExtension();
@@ -231,5 +239,16 @@ class LoginController extends Controller
 
         // ]);
 
+    }
+
+    public function getkota(Request $request)
+    {
+        $id_provinsi = $request->id_provinsi;
+
+        $kabupatens = Regency::where('province_id', $id_provinsi)->get();
+
+        foreach ($kabupatens as $kabupaten) {
+            echo "<option value='$kabupaten->id'>$kabupaten->name</option>";
+        }
     }
 }
