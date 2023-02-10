@@ -10,6 +10,7 @@
 namespace App\Models;
 
 use AzisHapidin\IndoRegion\Traits\ProvinceTrait;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -24,6 +25,7 @@ class Province extends Model
      * @var string
      */
     protected $table = 'provinces';
+    protected $guarded = [];
 
     /**
      * Province has many regencies.

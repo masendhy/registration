@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Periode;
 use App\Models\Regency;
 use App\Models\Employee;
-use App\Models\Province;
 // use Illuminate\Foundation\Auth\User;
+use App\Models\Province;
+use App\Models\Pelatihan;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -65,9 +67,11 @@ class LoginController extends Controller
     public function register()
     {
         $provinces = Province::all();
+        $pelatihans = Pelatihan::all();
+        $periodes = Periode::all();
         // $regencies = Regency::all();
 
-        return view('register', compact('provinces'));
+        return view('register', compact('provinces', 'pelatihans', 'periodes'));
     }
 
     public function registeruser(Request $request)
@@ -249,6 +253,17 @@ class LoginController extends Controller
 
         foreach ($kabupatens as $kabupaten) {
             echo "<option value='$kabupaten->id'>$kabupaten->name</option>";
+        }
+    }
+
+    public function getperiode(Request $request)
+    {
+        $id_pelatihan = $request->id_pelatihan;
+
+        $periodes = Periode::where('pelatihan_id', $id_pelatihan)->get();
+
+        foreach ($periodes as $periode) {
+            echo "<option value='$periode->id'>$periode->name</option>";
         }
     }
 }

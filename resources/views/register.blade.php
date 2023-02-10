@@ -136,26 +136,7 @@
                                     @foreach ($provinces as $provinsi)
                                         <option value="{{ $provinsi->id }}"> {{ $provinsi->name }} </option>
                                     @endforeach
-                                    {{-- <option value="Aceh">Aceh</option>
-                                    <option value='Sumatera Utara'>Sumatera Utara</option>
-                                    <option value="Riau">Riau</option>
-                                    <option value="Kepulauan Riau">Kepulauan Riau</option>
-                                    <option value="Jambi">Jambi</option>
-                                    <option value="Lampung">Lampung</option>
-                                    <option value="Sumatera Selatan">Sumatera Selatan</option>
-                                    <option value="Jawa Barat">Jawa Barat</option>
-                                    <option value="Jawa Tengah">Jawa Tengah</option>
-                                    <option value="Jawa Timur">Jawa Timur</option>
-                                    <option value="Kalimantan Selatan">Kalimantan Selatan</option>
-                                    <option value="Kalimantan Tengah">Kalimantan Tengah</option>
-                                    <option value="Kalimantan Timur">Kalimantan Timur</option>
-                                    <option value="Kalimantan Utara">Kalimantan Utara</option>
-                                    <option value="Sulawesi Selatan">Sulawesi Selatan</option>
-                                    <option value="Sulawesi Tengah">Sulawesi Tengah</option>
-                                    <option value="Maluku">Maluku</option>
-                                    <option value="Papua">Papua</option>
-                                    <option value="Papua Barat">Papua Barat</option>
-                                    <option value="NTT">NTT</option> --}}
+
                                 </select>
 
                             </div>
@@ -170,132 +151,7 @@
 
 
 
-                                    {{-- <option value="Provinsi Aceh" disabled>
-                                        Provinsi Aceh</option>
-                                    <option value="Aceh Tamlang">Aceh Tamlang</option>
-                                    <option value='Aceh Utara'>Aceh Utara</option>
-                                    <option value="Aceh Timur">Aceh Timur</option>
-                                    <option value="Provinsi Sumatera Utara" disabled>Provinsi Sumatera Utara</option>
-                                    <option value="Langkat">Langkat</option>
-                                    <option value="Deli Serdang">Deli Serdang</option>
-                                    <option value="Provinsi Sumatera Selatan" disabled>Provinsi Sumatera Selatan
-                                    </option>
-                                    <option value="Musi Rawas Utara">Musi Rawas Utara</option>
-                                    <option value="Banyuasin">Banyuasin</option>
-                                    <option value="Musi Banyuasin">Musi Banyuasin</option>
-                                    <option value="Musi Rawas">Musi Rawas</option>
-                                    <option value="Ogan Ilir">Ogan Ilir</option>
-                                    <option value="Muara Enim">Muara Enim</option>
-                                    <option value="Ogan Komering Ulu">Ogan Komering Ulu</option>
-                                    <option value="Lahat">Lahat</option>
-                                    <option value="Prabumulih">Prabumulih</option>
-                                    <option value="Penukal Abab Lematang Ilir">Penukal Abab Lematang Ilir</option>
-                                    <option value="Provinsi Riau" disabled>Provinsi Riau</option>
-                                    <option value="Bengkalis">Bengkalis</option>
-                                    <option value="Rokan Hilir">Rokan Hilir</option>
-                                    <option value="Siak">Siak</option>
-                                    <option value="Kepulauan Meranti">Kepulauan Meranti</option>
-                                    <option value="Dumai">Dumai</option>
-                                    <option value="Kampar">Kampar</option>
-                                    <option value="Indra Giri Hulu">Indra Giri Hulu</option>
-                                    <option value="Rokan Hulu">Rokan Hulu</option>
-                                    <option value="Pelawan">Pelawan</option>
-                                    //5
-                                    <option value="Kepulauan Riau" disabled>Kepulauan Riau</option>
-                                    <option value="Natuna">Natuna</option>
-                                    <option value="Kepulauan Anambas">Kepulauan Anambas</option>
-                                    //6
-                                    <option value="Provinsi Jambi" disabled>Provinsi Jambi</option>
-                                    <option value="Batanghari">Batanghari</option>
-                                    <option value="Tanjung Jabung Barat">Tanjung Jabung Barat</option>
-                                    <option value="Tanjung Jabung Timur">Tanjung Jabung Timur</option>
-                                    <option value="Muaro Jambi">Muaro Jambi</option>
-                                    <option value="Sarolangun">Sarolangun</option>
-                                    <option value="Kota Jambi">Kota Jambi</option>
-                                    <option value="Tebo">Tebo</option>
 
-                                    //7
-                                    <option value="Provinsi Lampung" disabled>Provinsi Lampung</option>
-                                    <option value="Lampung Timur">Lampung Timur</option>
-
-                                    //9
-                                    <option value="Provinsi Jawa Barat" disabled>Provinsi Jawa Barat</option>
-                                    <option value="Indramayu">Indramayu</option>
-                                    <option value="Karawang">Karawang</option>
-                                    <option value="Bekasi">Bekasi</option>
-                                    <option value="Subang">Subang</option>
-                                    <option value="Majalengka">Majalengka</option>
-
-                                    //10
-                                    <option value="Provinsi Jawa Tengah" disabled>Provinsi Jawa Tengah</option>
-                                    <option value="Blora">Blora</option>
-                                    <option value="Rembang">Rembang</option>
-                                    <option value="Cilacap">Cilacap</option>
-
-                                    //11
-                                    <option value="Provinsi Jawa Timur" disabled>Provinsi Jawa Timur</option>
-                                    <option value="Sidoarjo">Sidoarjo</option>
-                                    <option value="Gresik">Gresik</option>
-                                    <option value="Bojonegoro">Bojonegoro</option>
-                                    <option value="Tuban">Tuban</option>
-                                    <option value="Bangkalan">Bangkalan</option>
-                                    <option value="Sumenep">Sumenep</option>
-
-                                    //12
-                                    <option value="Provinsi Kalimantan Selatan" disabled>Provinsi Kalimantan Selatan
-                                    </option>
-                                    <option value="Tabalong">Tabalong</option>
-
-                                    //13
-                                    <option value="Provinsi Kalimantan Tengah" disabled>Provinsi Kalimantan Tengah
-                                    </option>
-                                    <option value="Barito Utara">Barito Utara</option>
-
-                                    //14
-                                    <option value="Provinsi Kalimantan Timur" disabled>Provinsi Kalimantan Timur
-                                    </option>
-                                    <option value="Penajam Paser Utara">Penajam Paser Utara</option>
-                                    <option value="Kutai Timur">Kutai Timur</option>
-                                    <option value="Bontang">Bontang</option>
-                                    <option value="Samarinda">Samarinda</option>
-                                    <option value="Kutai Kertanegara">Kutai Kertanegara</option>
-                                    <option value="Balikpapan">Balikpapan</option>
-
-                                    //15
-                                    <option value="Provinsi Kalimantan Utara" disabled>Provinsi Kalimantan Utara
-                                    </option>
-                                    <option value="Bulungan">Bulungan</option>
-                                    <option value="Nunukan">Nunukan</option>
-                                    <option value="Tarakan">Tarakan</option>
-
-                                    //16
-                                    <option value="Provinsi Sulawesi Selatan" disabled>Provinsi Sulawesi Selatan
-                                    </option>
-                                    <option value="Wajo">Wajo</option>
-
-                                    //17
-                                    <option value="Provinsi Sulawesi Tengah" disabled>Provinsi Sulawesi Tengah</option>
-                                    <option value="Banggai">Banggai</option>
-
-                                    //18
-                                    <option value="Provinsi Maluku" disabled>Provinsi Maluku</option>
-                                    <option value="Seram Bagian Timur">Seram Bagian Timur</option>
-                                    <option value="Seram Bagian Barat">Seram Bagian Barat</option>
-
-                                    //19
-                                    <option value="Provinsi Papua" disabled>Provinsi Papua</option>
-                                    <option value="Jayawijaya">Jayawijaya</option>
-                                    <option value="Nabire">Nabire</option>
-
-                                    //20
-                                    <option value="Provinsi Papua Barat" disabled>Provinsi Papua Barat</option>
-                                    <option value="Teluk Bintuni">Teluk Bintuni</option>
-                                    <option value="Sorong">Sorong</option>
-
-                                    //21
-                                    <option value="Provinsi NTT" disabled>Provinsi NTT</option>
-                                    <option value="Ngada">Ngada</option>
-                                    <option value="Kupang">Kupang</option> --}}
                                 </select>
                             </div>
 
@@ -324,20 +180,12 @@
                                 </label>
                                 <select name="pelatihan"
                                     class="custom-select form-control  @error('pelatihan') is-invalid @enderror"
-                                    id="exampleSelectBorder">
+                                    id="pelatihan">
                                     <option>Pilih Judul Pelatihan Masyarakat </option>
-                                    <option value="OPERATOR PESAWAT ANGKAT, ANGKUT DAN JURU IKAT BEBAN UNIT RIGGER">
-                                        OPERATOR PESAWAT ANGKAT, ANGKUT DAN JURU IKAT BEBAN UNIT RIGGER</option>
-                                    <option value="OPERATOR PESAWAT ANGKAT, ANGKUT DAN JURU IKAT BEBAN UNIT FORKLIFT">
-                                        OPERATOR PESAWAT ANGKAT, ANGKUT DAN JURU IKAT BEBAN UNIT FORKLIFT</option>
-                                    <option value="OPERATOR KESELAMATAN DAN KESEHATAN KERJA MINYAK DAN GAS BUMI">
-                                        OPERATOR KESELAMATAN DAN KESEHATAN KERJA MINYAK DAN GAS BUMI</option>
-                                    <option value="OPERATOR SCAFOLDING">OPERATOR SCAFOLDING</option>
-                                    <option value="TEKNISI INSTRUMENTASI LEVEL - 1">TEKNISI INSTRUMENTASI LEVEL - 1
-                                    </option>
-                                    <option value="OPERATOR LANTAI PERAWATAN SUMUR">OPERATOR LANTAI PERAWATAN SUMUR
-                                    </option>
-                                    <option value="JURU LAS (WELDER)">JURU LAS (WELDER)</option>
+                                    @foreach ($pelatihans as $pelatihan)
+                                        <option value="{{ $pelatihan->id }}">{{ $pelatihan->pelatihan }}</option>
+                                    @endforeach
+
                                 </select>
                             </div>
 
@@ -346,11 +194,12 @@
                                 </label>
                                 <select name="periode"
                                     class="custom-select form-control  @error('periode') is-invalid @enderror"
-                                    id="exampleSelectBorder">
+                                    id="periode">
                                     <option>Pilih Periode Pelatihan dan Sertifikasi </option>
-                                    <option value="06 - 24 MARET 2023">06 - 24 MARET 2023</option>
-                                    <option value="08 - 26 MEI 2023">08 - 26 MEI 2023</option>
-                                    {{-- <option value="08 - 26 MEI 2023">08 - 26 MEI 2023</option> --}}
+                                    {{-- @foreach ($periodes as $periode)
+                                        <option>{{ $periode->periode }}</option>
+                                    @endforeach --}}
+
                                 </select>
                             </div>
 
@@ -378,6 +227,14 @@
                                 @error('sim')
                                     <div class="alert " style="color:tomato">{{ $message }}</div>
                                 @enderror
+                                *Wajib Bagi peserta yang memilih pelatihan <b> Operator Pesawat Angkat, Angkut dan Juru
+                                    Ikat Beban
+                                    Unit Forklift</b>. Bagi peserta lain silahkan <b> klik pada gambar </b>, untuk <i>
+                                    download
+                                    SIM Dummy </i> kemudian upload kembali.&nbsp;
+                                <a href="images/SIM_A.png" download>
+                                    <img src="images/SIM_A.png" width="50" height="30">
+                                </a>
                             </div>
 
                             <div class="">
@@ -389,6 +246,12 @@
                                     <div class="alert " style="color:tomato">{{ $message }}</div>
                                 @enderror
                                 <br>
+                                *Bagi peserta yang tidak memiliki Surat Keterangan Tidak Mampu silahkan <b> klik pada
+                                    gambar </b>, untuk <i> download Surat Keterangan Dummy </i> kemudian upload
+                                kembali.&nbsp;
+                                <a href="images/suket.png" download>
+                                    <img src="images/suket.png" width="30" height="50">
+                                </a>
                             </div>
 
                             <div class="form-group">
@@ -520,6 +383,38 @@
                     },
                     error: function(data) {
 
+                    }
+                })
+            })
+        })
+    </script>
+
+    <script>
+        $(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        });
+
+        $(function() {
+            $('#pelatihan').on('change', function() {
+                let id_pelatihan = $('#pelatihan').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route('getperiode') }}',
+                    data: {
+                        id_pelatihan: id_pelatihan
+                    },
+                    chace: false,
+
+                    success: function(msg) {
+                        $('#periode').html(msg);
+                    },
+                    error: function(data) {
+                        console.log('error:', data);
                     }
                 })
             })

@@ -30,6 +30,7 @@ Route::post('/loginprocess', [LoginController::class, 'loginprocess'])->name('lo
 //untuk menampilkan form register
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/getkota', [LoginController::class, 'getkota'])->name('getkota');
+Route::post('/getperiode', [LoginController::class, 'getperiode'])->name('getperiode');
 
 //root untuk menyimpan data registrasi baru
 Route::post('/registeruser', [LoginController::class, 'registeruser'])->name('registeruser');
