@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>Daftar Peserta | Seleksi Pelatihan Masyarakat PPSDM Migas</title>
 
     <!-- Google Font: Source Sans Pro -->
@@ -165,8 +167,8 @@
                             <td>{{ $row->tanggal_lahir }}</td>
                             <td>{{ $row->agama }}</td>
                             <td>{{ $row->alamat_rumah }}</td>
-                            <td>{{ $row->provinsi }}</td>
-                            <td>{{ $row->kota }}</td>
+                            <td>{{ $row->provincies->name }}</td>
+                            <td>{{ $row->regencies->name }}</td>
                             <td>{{ $row->pendidikan }}</td>
                             <td><img src="{{ asset('IJAZAH/' . $row->img_ijazah) }}" style="width: 50px"></td>
                             <td>{{ $row->no_hp }}</td>
@@ -174,8 +176,9 @@
                             <td><img src="{{ asset('FOTO/' . $row->foto) }}" style="width: 50px"></td>
                             {{-- <td>{{ $row->sim }}</td> --}}
                             <td><img src="{{ asset('SIM/' . $row->sim) }}" style="width: 50px"></td>
-                            <td>{{ $row->pelatihan }}</td>
-                            <td>{{ $row->periode }}</td>
+                            <td>{{ $row->pelatihans->pelatihan }}</td>
+                            <td>{{ $row->periodes->name }}</td>
+
 
                         </tr>
                     @endforeach
@@ -226,6 +229,15 @@
                 "info": true,
                 "autoWidth": false,
                 "responsive": true,
+            });
+        });
+    </script>
+    <script>
+        $(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
             });
         });
     </script>

@@ -149,9 +149,6 @@
                                     id="kota">
                                     <option>Pilih Kabupaten / Kota</option>
 
-
-
-
                                 </select>
                             </div>
 
@@ -187,6 +184,11 @@
                                     @endforeach
 
                                 </select>
+                                <br>
+                                * Download Jadwal Lengkap Pelatihan <a href="images/suket.png" style="color:red"
+                                    download>
+                                    disini
+                                </a>
                             </div>
 
                             <div class="form-group">
@@ -219,39 +221,20 @@
                                 </label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" name="sim"
-                                            class="form-control @error('sim') is-invalid @enderror "
+                                        <input type="file" name="sim" class="form-control  "
                                             id="exampleInputFile">
                                     </div>
                                 </div>
-                                @error('sim')
-                                    <div class="alert " style="color:tomato">{{ $message }}</div>
-                                @enderror
+
                                 *Wajib Bagi peserta yang memilih pelatihan <b> Operator Pesawat Angkat, Angkut dan Juru
                                     Ikat Beban
-                                    Unit Forklift</b>. Bagi peserta lain silahkan <b> klik pada gambar </b>, untuk <i>
-                                    download
-                                    SIM Dummy </i> kemudian upload kembali.&nbsp;
-                                <a href="images/SIM_A.png" download>
-                                    <img src="images/SIM_A.png" width="50" height="30">
-                                </a>
+                                    Unit Forklift</b>.
                             </div>
 
                             <div class="">
                                 <label for="" class="form-label">Upload Surat Keterangan Tidak Mampu</label>
-                                <input type="file" name="img_suket"
-                                    class="form-control @error('img_suket') is-invalid @enderror"
-                                    id="exampleInputFile">
-                                @error('img_suket')
-                                    <div class="alert " style="color:tomato">{{ $message }}</div>
-                                @enderror
-                                <br>
-                                *Bagi peserta yang tidak memiliki Surat Keterangan Tidak Mampu silahkan <b> klik pada
-                                    gambar </b>, untuk <i> download Surat Keterangan Dummy </i> kemudian upload
-                                kembali.&nbsp;
-                                <a href="images/suket.png" download>
-                                    <img src="images/suket.png" width="30" height="50">
-                                </a>
+                                <input type="file" name="img_suket" class="form-control " id="exampleInputFile">
+                                *Tidak Wajib
                             </div>
 
                             <div class="form-group">

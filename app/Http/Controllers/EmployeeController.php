@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use PDF;
-use App\Models\Employee;
+use App\Models\Periode;
 // use Barryvdh\DomPDF\Facade as PDF;
 // use Barryvdh\DomPDF\PDF;
+use App\Models\Employee;
+use App\Models\Province;
+use App\Models\Pelatihan;
 use Illuminate\Http\Request;
 use App\Exports\EmployeeExport;
 use App\Http\Controllers\Controller;
@@ -24,11 +27,16 @@ class EmployeeController extends Controller
             $data = Employee::paginate(5);
         }
 
+
+        $provinces = Province::all();
+        $pelatihans = Pelatihan::all();
+        $periodes = Periode::all();
+
         $jumlahpeserta = Employee::count();
         $jumlahpesertapria = Employee::where('jenis_kelamin', 'pria')->count();
         $jumlahpesertawanita = Employee::where('jenis_kelamin', 'wanita')->count();
 
-        return view('datapeserta', compact('data', 'jumlahpeserta', 'jumlahpesertapria', 'jumlahpesertawanita'));
+        return view('datapeserta', compact('data', 'jumlahpeserta', 'jumlahpesertapria', 'jumlahpesertawanita', 'provinces', 'pelatihans', 'periodes'));
     }
 
 

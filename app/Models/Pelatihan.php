@@ -10,4 +10,10 @@ class Pelatihan extends Model
     use HasFactory;
     protected $table = 'pelatihans';
     protected $guarded = [];
+
+
+    public function  getRouteKeyName()
+    {
+        return 'pelatihan';
+    }
 }

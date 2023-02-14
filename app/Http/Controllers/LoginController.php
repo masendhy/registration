@@ -96,7 +96,7 @@ class LoginController extends Controller
                 'pendidikan' => 'required',
                 'img_ijazah' => 'required',
                 'no_hp' => 'required | unique:employees',
-                'sim' => 'required',
+                // 'sim' => 'required',
                 'foto' => 'required',
                 'pelatihan' => 'required|not_in:0',
                 'periode' => 'required|not_in:0',

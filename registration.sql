@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 10, 2023 at 01:12 AM
+-- Generation Time: Feb 13, 2023 at 03:39 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -44,7 +44,7 @@ CREATE TABLE `employees` (
   `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nik` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `img_nik` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `img_suket` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img_suket` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `jenis_kelamin` enum('Pria','Wanita') COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` enum('Lajang','Menikah') COLLATE utf8mb4_unicode_ci NOT NULL,
   `tempat_lahir` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -57,9 +57,9 @@ CREATE TABLE `employees` (
   `img_ijazah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `no_hp` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `foto` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sim` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pelatihan` enum('JURU LAS (WELDER)','OPERATOR PESAWAT ANGKAT, ANGKUT DAN JURU IKAT BEBAN UNIT RIGGER','OPERATOR PESAWAT ANGKAT, ANGKUT DAN JURU IKAT BEBAN UNIT FORKLIFT','OPERATOR KESELAMATAN DAN KESEHATAN KERJA MINYAK DAN GAS BUMI','OPERATOR SCAFOLDING','TEKNISI INSTRUMENTASI LEVEL - 1','OPERATOR LANTAI PERAWATAN SUMUR') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `periode` enum('06 - 24 MARET 2023','08 - 26 MEI 2023') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sim` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pelatihan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `periode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -105,7 +105,15 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (6, '2017_05_02_143454_create_villages_tables', 1),
 (7, '2019_08_19_000000_create_failed_jobs_table', 1),
 (8, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(9, '2023_02_01_134055_create_employees_table', 1);
+(9, '2023_02_01_134055_create_employees_table', 1),
+(10, '2023_02_10_012802_create_pelatihans_table', 2),
+(11, '2023_02_10_024843_create_periodes_table', 3),
+(12, '2023_02_10_060408_create_periodes_table', 4),
+(13, '2023_02_10_060658_create_pelatihans_table', 5),
+(14, '2023_02_10_062649_create_pelatihans_table', 6),
+(15, '2023_02_10_065901_create_employees_table', 7),
+(16, '2023_02_10_143349_create_pelatihans_table', 8),
+(17, '2023_02_10_143730_create_periodes_table', 9);
 
 -- --------------------------------------------------------
 
@@ -118,6 +126,91 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pelatihans`
+--
+
+CREATE TABLE `pelatihans` (
+  `id` char(2) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pelatihan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pelatihans`
+--
+
+INSERT INTO `pelatihans` (`id`, `pelatihan`, `created_at`, `updated_at`) VALUES
+('1', 'OPERATOR PESAWAT ANGKAT, ANGKUT DAN JURU IKAT BEBAN UNIT RIGGER BATCH-1', NULL, NULL),
+('2', 'OPERATOR KESELAMATAN DAN KESEHATAN KERJA MINYAK DAN GAS BUMI BATCH-1', NULL, NULL),
+('3', 'OPERATOR PESAWAT ANGKAT, ANGKUT DAN JURU IKAT BEBAN UNIT FORKLIFT BATCH-1', NULL, NULL),
+('4', 'SCAFFOLDING LEVEL OPERATOR BATCH-1', NULL, NULL),
+('5', 'TEKNISI INSTRUMENTASI LEVEL - 1 BATCH-1', NULL, NULL),
+('6', 'JURU LAS (WELDER) BATCH-1', NULL, NULL),
+('7', 'OPERATOR PESAWAT ANGKAT, ANGKUT DAN JURU IKAT BEBAN UNIT RIGGER BATCH-2', NULL, NULL),
+('8', 'OPERATOR KESELAMATAN DAN KESEHATAN KERJA MINYAK DAN GAS BUMI BATCH-2', NULL, NULL),
+('9', 'OPERATOR PESAWAT ANGKAT, ANGKUT DAN JURU IKAT BEBAN UNIT FORKLIFT BATCH-2', NULL, NULL),
+('10', 'SCAFFOLDING LEVEL OPERATOR BATCH-2', NULL, NULL),
+('11', 'TEKNISI INSTRUMENTASI LEVEL - 1 BATCH-2', NULL, NULL),
+('12', 'JURU LAS (WELDER) BATCH-2', NULL, NULL),
+('13', 'OPERATOR PESAWAT ANGKAT, ANGKUT DAN JURU IKAT BEBAN UNIT RIGGER BATCH-3', NULL, NULL),
+('14', 'OPERATOR KESELAMATAN DAN KESEHATAN KERJA MINYAK DAN GAS BUMI BATCH-3', NULL, NULL),
+('15', 'OPERATOR PESAWAT ANGKAT, ANGKUT DAN JURU IKAT BEBAN UNIT FORKLIFT BATCH-3', NULL, NULL),
+('16', 'SCAFFOLDING LEVEL OPERATOR BATCH-3', NULL, NULL),
+('17', 'TEKNISI INSTRUMENTASI LEVEL - 1 BATCH-3', NULL, NULL),
+('18', 'OPERATOR LANTAI PERAWATAN SUMUR', NULL, NULL),
+('19', 'JURU LAS (WELDER) BATCH-3', NULL, NULL),
+('20', 'OPERATOR PESAWAT ANGKAT, ANGKUT DAN JURU IKAT BEBAN UNIT RIGGER BATCH-4', NULL, NULL),
+('21', 'OPERATOR KESELAMATAN DAN KESEHATAN KERJA MINYAK DAN GAS BUMI BATCH-4', NULL, NULL),
+('22', 'OPERATOR PESAWAT ANGKAT, ANGKUT DAN JURU IKAT BEBAN UNIT FORKLIFT BATCH-4', NULL, NULL),
+('23', 'JURU LAS (WELDER) BATCH-4', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `periodes`
+--
+
+CREATE TABLE `periodes` (
+  `id` char(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pelatihan_id` char(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `periodes`
+--
+
+INSERT INTO `periodes` (`id`, `pelatihan_id`, `name`, `created_at`, `updated_at`) VALUES
+('1', '1', '09-27 JANUARI 2023', NULL, NULL),
+('2', '2', '09-27 JANUARI 2023', NULL, NULL),
+('3', '3', '09-27 JANUARI 2023', NULL, NULL),
+('4', '4', '09-27 JANUARI 2023', NULL, NULL),
+('5', '5', '09-27 JANUARI 2023', NULL, NULL),
+('6', '6', '09-27 JANUARI 2023', NULL, NULL),
+('7', '7', '06-24 FEBRUARI 2023', NULL, NULL),
+('8', '8', '06-24 FEBRUARI 2023', NULL, NULL),
+('9', '9', '06-24 FEBRUARI 2023', NULL, NULL),
+('10', '10', '06-24 FEBRUARI 2023', NULL, NULL),
+('11', '11', '06-24 FEBRUARI 2023', NULL, NULL),
+('12', '12', '06-24 FEBRUARI 2023', NULL, NULL),
+('13', '13', '06-24 MARET 2023', NULL, NULL),
+('14', '14', '06-24 MARET 2023', NULL, NULL),
+('15', '15', '06-24 MARET 2023', NULL, NULL),
+('16', '16', '06-24 MARET 2023', NULL, NULL),
+('17', '17', '06-24 MARET 2023', NULL, NULL),
+('18', '18', '06-24 MARET 2023', NULL, NULL),
+('19', '19', '06-24 MARET 2023', NULL, NULL),
+('20', '20', '08-26 MEI 2023', NULL, NULL),
+('21', '21', '08-26 MEI 2023', NULL, NULL),
+('22', '22', '08-26 MEI 2023', NULL, NULL),
+('23', '23', '08-26 MEI 2023', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -278,6 +371,13 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'diklat@ppsdm.net', NULL, '$2y$10$K169E8PJuWXvmKtG/6HKE.HTNte2gm.60FiEJ7jI796sm2r7bjPj2', NULL, '2023-02-10 00:05:17', '2023-02-10 00:05:17');
+
 -- --------------------------------------------------------
 
 --
@@ -325,6 +425,22 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `pelatihans`
+--
+ALTER TABLE `pelatihans`
+  ADD KEY `pelatihans_id_index` (`id`),
+  ADD KEY `pelatihan` (`pelatihan`),
+  ADD KEY `id` (`id`),
+  ADD KEY `pelatihan_2` (`pelatihan`);
+
+--
+-- Indexes for table `periodes`
+--
+ALTER TABLE `periodes`
+  ADD KEY `periodes_pelatihan_id_foreign` (`pelatihan_id`),
+  ADD KEY `periodes_id_index` (`id`);
 
 --
 -- Indexes for table `personal_access_tokens`
@@ -381,7 +497,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -393,7 +509,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -404,6 +520,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `districts`
   ADD CONSTRAINT `districts_regency_id_foreign` FOREIGN KEY (`regency_id`) REFERENCES `regencies` (`id`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `periodes`
+--
+ALTER TABLE `periodes`
+  ADD CONSTRAINT `periodes_pelatihan_id_foreign` FOREIGN KEY (`pelatihan_id`) REFERENCES `pelatihans` (`id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `regencies`
