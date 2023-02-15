@@ -15,8 +15,7 @@ use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use PhpOffice\PhpSpreadsheet\Writer\Pdf\Dompdf;
 use Dompdf\Options;
-
-
+use Illuminate\Support\Facades\Auth;
 
 class EmployeeController extends Controller
 {
@@ -41,6 +40,12 @@ class EmployeeController extends Controller
         return view('datapeserta', compact('data', 'jumlahpeserta', 'jumlahpesertapria', 'jumlahpesertawanita', 'provinces', 'pelatihans', 'periodes'));
     }
 
+
+    public function frame()
+    {
+
+        return view('/preview');
+    }
 
 
     public function exportpdf()

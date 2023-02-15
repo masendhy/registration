@@ -46,6 +46,6 @@ Route::get('/exportpdf', [EmployeeController::class, 'exportpdf'])->name('export
 Route::get('/exportexcel', [EmployeeController::class, 'exportexcel'])->name('exportexcel');
 
 
-// Route::get('/peserta', [EmployeeController::class, 'jumlahpeserta'])->name('jumlahpeserta');
+Route::get('/frame', [EmployeeController::class, 'frame'])->name('frame');
 // Route::get('/peserta', [EmployeeController::class, 'jumlahpesertapria'])->name('jumlahpesertapria');
 // Route::get('/peserta', [EmployeeController::class, 'jumlahpesertawanita'])->name('jumlahpesertawanita');

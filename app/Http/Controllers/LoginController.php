@@ -14,6 +14,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
+use function Ramsey\Uuid\v1;
+
 class LoginController extends Controller
 {
     public function login()
@@ -21,9 +23,13 @@ class LoginController extends Controller
         return view('login');
     }
 
+
     public function loginprocess(Request $request)
     {
+
         if (Auth::attempt($request->only('name', 'password'))) {
+
+
             return redirect('peserta');
         }
         // if (Auth::attempt($credentials)) {
@@ -223,7 +229,7 @@ class LoginController extends Controller
         //     $data->sim = $request->file('sim')->getClientOriginalName();
         //     $data->save();
         // }
-        return redirect('/');
+        return redirect('/frame');
 
         // Employee::create([
         //     'nama' => $request->nama,

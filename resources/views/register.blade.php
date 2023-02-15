@@ -185,8 +185,8 @@
 
                                 </select>
                                 <br>
-                                * Download Jadwal Lengkap Pelatihan <a href="images/suket.png" style="color:blue"
-                                    download>
+                                * Download Jadwal Lengkap Pelatihan <a href="images/suket.png"
+                                    style="color:rgb(69, 69, 255)" download>
                                     disini
                                 </a>
                             </div>
@@ -316,7 +316,7 @@
 
 
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary ok">Submit</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>

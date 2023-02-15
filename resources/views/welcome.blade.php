@@ -397,10 +397,12 @@
         {{-- @if (Route::has('login')) --}}
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
             {{-- @auth --}}
-            <a href="{{ url('/register') }}" class="text-md text-gray-700 dark:text-gray-500 " style="color:blue ">
+            <a href="{{ url('/register') }}" class="text-md text-gray-700 dark:text-gray-500 "
+                style="color:rgb(69, 69, 255) ">
                 Register</a>
             {{-- @else --}}
-            <a href="{{ route('login') }}" class="text-md text-gray-700 dark:text-gray-500 " style="color:blue">Log
+            <a href="{{ route('login') }}" class="text-md text-gray-700 dark:text-gray-500 "
+                style="color:rgb(69, 69, 255)">Log
                 in</a>
 
             {{-- @if (Route::has('register'))
@@ -440,11 +442,11 @@
                         <div class="ml-12">
                             <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                                 Pelatihan ini diadakan secara gratis dan ditujukan untuk umum. Semua ketentuan dan
-                                persyaratan pelatihan dapat anda lihat pada menu <a style="color: blue "
+                                persyaratan pelatihan dapat anda lihat pada menu <a style="color: rgb(69, 69, 255) "
                                     href="{{ url('/register') }}"><strong>Register.</strong></a>
                             </div>
                             <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                Untuk keterangan lebih lajut dapat mengubungi kami <a style="color: blue"
+                                Untuk keterangan lebih lajut dapat mengubungi kami <a style="color: rgb(69, 69, 255)"
                                     href="https://wa.me/6285225722456/?text=Halo%20diklat%20PPSDM%20Migas"><strong>Disini.</strong></a>
 
                             </div>
