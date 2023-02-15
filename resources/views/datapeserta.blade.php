@@ -160,7 +160,14 @@
                             <td>{{ $row->nik }}</td>
                             {{-- <td>{{ $row->img_nik }}</td> --}}
                             <td><img src="{{ asset('KTP/' . $row->img_nik) }}" style="width: 50px"></td>
-                            <td><img src="{{ asset('SUKET/' . $row->img_suket) }}" style="width: 50px"></td>
+                            <td>
+                                @php
+                                    $image = public_path('SUKET/' . $row->img_suket);
+                                    $imageData = base64_encode(file_get_contents($image));
+                                    $src = 'data:' . mime_content_type($image) . ';base64,' . $imageData;
+                                @endphp
+                                <img src="{{ $src }}" style="width: 150px">
+                            </td>
                             <td>{{ $row->jenis_kelamin }}</td>
                             <td>{{ $row->status }}</td>
                             <td>{{ $row->tempat_lahir }}</td>

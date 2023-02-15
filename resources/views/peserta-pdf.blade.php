@@ -52,8 +52,18 @@
             <tr>
                 <td scope="row">{{ $row->id }}</td>
                 <td>{{ $row->nama }}</td>
-                <td><img src="{{ public_path('KTP/' . $row->img_nik) }}" style="width: 50px"></td>
-                <td><img src="{{ public_path('SUKET/' . $row->img_suket) }}" style="width: 50px"></td>
+                <td><img src="{{ public_path('KTP/' . $row->img_nik) }}" style="width: 50px">
+                </td>
+                <td>
+                    <center>
+                        @php
+                            $image = public_path('SUKET/' . $row->img_suket);
+                            $imageData = base64_encode(file_get_contents($image));
+                            $src = 'data:image/' . mime_content_type($image) . ';base64,' . $imageData;
+                        @endphp
+                        <img src="{{ $src }}" style="width: 50px">
+                    </center>
+                </td>
                 <td><img src="{{ public_path('IJAZAH/' . $row->img_ijazah) }}" style="width: 50px"></td>
                 <td><img src="{{ public_path('SIM/' . $row->sim) }}" style="width: 50px"></td>
                 <td><img src="{{ public_path('FOTO/' . $row->foto) }}" style="width: 50px"></td>

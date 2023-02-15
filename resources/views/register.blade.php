@@ -185,7 +185,7 @@
 
                                 </select>
                                 <br>
-                                * Download Jadwal Lengkap Pelatihan <a href="images/suket.png" style="color:red"
+                                * Download Jadwal Lengkap Pelatihan <a href="images/suket.png" style="color:blue"
                                     download>
                                     disini
                                 </a>
@@ -213,7 +213,7 @@
                                 @error('img_nik')
                                     <div class="alert " style="color:tomato">{{ $message }}</div>
                                 @enderror
-                                <br>
+                                * Upload file : png/jpg/jpeg
                             </div>
 
                             <div class="form-group">
@@ -225,7 +225,8 @@
                                             id="exampleInputFile">
                                     </div>
                                 </div>
-
+                                * Upload file : png/jpg/jpeg
+                                <br>
                                 *Wajib Bagi peserta yang memilih pelatihan <b> Operator Pesawat Angkat, Angkut dan Juru
                                     Ikat Beban
                                     Unit Forklift</b>.
@@ -234,6 +235,8 @@
                             <div class="">
                                 <label for="" class="form-label">Upload Surat Keterangan Tidak Mampu</label>
                                 <input type="file" name="img_suket" class="form-control " id="exampleInputFile">
+                                * Upload file : png/jpg/jpeg
+                                <br>
                                 *Tidak Wajib
                             </div>
 
@@ -261,6 +264,7 @@
                                             id="exampleInputFile">
                                     </div>
                                 </div>
+                                * Upload file : png/jpg/jpeg
                                 <p>* Background biru, berdasi, kemeja putih</p>
                                 @error('foto')
                                     <div class="alert " style="color:tomato">{{ $message }}</div>
@@ -271,7 +275,7 @@
                                 yang berlaku apabila data yang diisikan tidak benar.</p>
 
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                                 <label class="form-check-label" for="exampleCheck1">Saya Setuju</label>
                             </div>
                         </div>

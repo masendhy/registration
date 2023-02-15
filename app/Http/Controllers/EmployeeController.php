@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 use App\Exports\EmployeeExport;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
+use PhpOffice\PhpSpreadsheet\Writer\Pdf\Dompdf;
+use Dompdf\Options;
 
 
 
@@ -46,7 +48,23 @@ class EmployeeController extends Controller
         $data = Employee::all();
 
         view()->share('data', $data);
-        $pdf = PDF::loadview('peserta-pdf');
+        // $pdf = app('dompdf.wrapper');
+
+        // //############ Permitir ver imagenes si falla ################################
+        // $contxt = stream_context_create([
+        //     'ssl' => [
+        //         'verify_peer' => FALSE,
+        //         'verify_peer_name' => FALSE,
+        //         'allow_self_signed' => TRUE,
+        //     ]
+        // ]);
+
+        // $pdf = PDF::setOptions(['isHTML5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+        // $pdf->getDomPDF()->setHttpContext($contxt);
+
+
+
+        $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadview('peserta-pdf');
 
         return $pdf->download('data.pdf');
     }
